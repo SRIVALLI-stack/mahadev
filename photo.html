@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Bava ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: Arial, sans-serif;
+
+            background: linear-gradient(
+                135deg,
+                #a1c4fd,
+                #fbc2eb
+            );
+
+            overflow: hidden;
+        }
+
+        /* Main Card */
+        .card {
+            width: 90%;
+            max-width: 450px;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 30px;
+
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.2);
+
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            color: #ff4f81;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #555;
+            font-size: 17px;
+        }
+
+        /* Photo Frame */
+        .photo-frame {
+            width: 300px;
+            height: 400px;
+            margin: 25px auto;
+
+            padding: 8px;
+
+            background: white;
+
+            border: 5px solid #ff7eb3;
+            border-radius: 25px;
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.25);
+
+            overflow: hidden;
+        }
+
+        /* Photo */
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: contain;
+
+            border-radius: 15px;
+
+            display: block;
+
+            transition: opacity 0.5s ease;
+        }
+
+        /* Button */
+        button {
+            border: none;
+            padding: 14px 25px;
+
+            border-radius: 25px;
+
+            background: linear-gradient(
+                45deg,
+                #ff6f91,
+                #ff9a9e
+            );
+
+            color: white;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 5px 15px rgba(255, 105, 135, 0.4);
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        /* Floating Hearts */
+        .heart {
+            position: absolute;
+            color: #ff6f91;
+            font-size: 25px;
+
+            animation: float 5s linear infinite;
+        }
+
+        .heart:nth-child(1) {
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .heart:nth-child(2) {
+            left: 30%;
+            animation-delay: 2s;
+        }
+
+        .heart:nth-child(3) {
+            left: 70%;
+            animation-delay: 1s;
+        }
+
+        .heart:nth-child(4) {
+            left: 90%;
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+            0% {
+                bottom: -50px;
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            100% {
+                bottom: 110%;
+                opacity: 0;
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Mobile */
+        @media (max-width: 400px) {
+
+            .photo-frame {
+                width: 260px;
+                height: 350px;
+            }
+
+            h1 {
+                font-size: 25px;
+            }
+
+            p {
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Floating Hearts -->
+    <div class="heart">❤️</div>
+    <div class="heart">💕</div>
+    <div class="heart">💗</div>
+    <div class="heart">💖</div>
+
+
+    <!-- Main Card -->
+    <div class="card">
+
+        <h1>My Bava ❤️</h1>
+
+        <p>
+            Birthday boy photoshoot time 😏📸
+        </p>
+
+        <!-- Photo Frame -->
+        <div class="photo-frame">
+
+            <img
+                id="bavaPhoto"
+                src="sp1.jpeg"
+                alt="My Bava"
+            >
+
+        </div>
+
+        <p>
+            Bavaa... aa cute burrii bugaluu chustunte chinna kiss evali anipistundhi😘🫠❤️
+            <br>
+        </p>
+
+        <button onclick="goNext()">
+            Continue ❤️
+        </button>
+
+    </div>
+
+
+    <script>
+
+        /* Four Photos */
+        const photos = [
+            "sp1.jpeg",
+            "sp2.jpeg",
+            "sp3.jpeg",
+            "sp4.jpeg"
+        ];
+
+        let currentPhoto = 0;
+
+        const bavaPhoto =
+            document.getElementById("bavaPhoto");
+
+
+        /* Slideshow */
+        setInterval(function () {
+
+            /* Fade Out */
+            bavaPhoto.style.opacity = "0";
+
+            setTimeout(function () {
+
+                currentPhoto++;
+
+                if (currentPhoto >= photos.length) {
+                    currentPhoto = 0;
+                }
+
+                bavaPhoto.src = photos[currentPhoto];
+
+                /* Fade In */
+                bavaPhoto.style.opacity = "1";
+
+            }, 500);
+
+        }, 3000);
+
+
+        /* Continue Button */
+        function goNext() {
+
+            window.location.href = "memories.html";
+
+        }
+
+    </script>
+
+</body>
+</html>
